@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="hu">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="static/jquery.inputmask.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+
+    <title>Adatbekérő</title>
+
+</head>
+
+<body>
+    <div class="container col-sm-6 col-sm-offset-3">
+        <form action="/ev" method="post" class="well form-horizontal" name="evForm" id="evForm">
+            <table class="table table-striped border">
+                <tbody>
+                    <tr>
+                        <td colspan="1">
+                            <fieldset>
+                                <h3>Egyéni vállalkozó adatai</h3>
+                                <h4>Személyes adatok</h4>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="firstName">Családi név</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="firstName" name="first_name" placeholder="Családi név" class="form-control"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="lastName">Keresztnév</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="lastName" name="last_name" placeholder="Keresztnév" class="form-control"
+                                                required="true" value="" type="text"></div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="fullName">Teljes név</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="fullName" name="full_name" placeholder="Teljes név" class="form-control"
+                                                required="true" value="" type="text" disabled></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="birthName">Születési név</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="birthName" name="birth_name" placeholder="Születési név" class="form-control"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="motherName">Anyja neve</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="motherName" name="mother_name" placeholder="Anyja neve" class="form-control"
+                                                required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="birthPlace">Születési hely</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><input
+                                                id="birthPlace" name="birth_place" placeholder="Születési hely" class="form-control"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="birthDate">Születési idő</label>
+                                        <div class="input-group date-input"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span><input
+                                                id="birthDate" name="birth_date" placeholder="Születési idő" class="form-control date-input"
+                                                required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="idNumber">Személyi igazolvány száma</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="idNumber" name="id_number" placeholder="SZIG szám" class="form-control id-number-input"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="addressCardNumber">Lakcímkártya száma</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="addressCardNumber" name="address_card_number" placeholder="Lakcímkártya száma"
+                                                class="form-control address-card-number-input" required="true" value=""
+                                                type="text"></div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="taxIdNumber">Adóazonosító jel</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="taxIdNumber" name="tax_id_number" placeholder="Adóazonosító jel"
+                                                class="form-control tax-id-number-input" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="bankName">Számlavezető bank</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="bankName" name="bank_name" placeholder="Számlavezető bank" class="form-control"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="accountNumber">Bankszámlaszám</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="accountNumber" name="account_number" placeholder="Bankszámlaszám"
+                                                class="form-control account-number-input" required="true" value="" type="text">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="education">Végzettség</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                                            <select id="education" name="education" class="form-control">
+                                                <option selected>Choose...</option>
+                                                <option value="kozep">Középfokú</option>
+                                                <option value="kozepszak">Középfokú szakirányú</option>
+                                                <option value="felso">Felsőfokú</option>
+                                                <option value="felsoszak">Felsőfokú szakirányú</option>
+                                                <option value="hatosagi">Közvetítő hatósági vizsga</option>
+                                                <option value="egyeb">Egyéb</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="relationship">Jogviszony jellege</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-transfer"></i></span>
+                                            <select id="relationship" name="relationship" class="form-control">
+                                                <option selected>Choose...</option>
+                                                <option value="munkaviszony">Munkaviszony</option>
+                                                <option value="megbizasi">Megbízási jogviszony</option>
+                                                <option value="egyeb">Egyéb jogviszony</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>Kapcsolattartási adatok</h4>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="email">Email</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="email" name="email" placeholder="Email" class="form-control"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="phone">Telefonszám</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span><input
+                                                id="phone" name="phone" placeholder="Telefonszám" class="form-control"
+                                                required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <label>Székhely</label>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="seatZipCode">Irsz.</label>
+                                        <input type="text" class="form-control" id="seatZipCode" name="seat_zip"
+                                            placeholder="Irsz.">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="seatCity">Város</label>
+                                        <input type="text" class="form-control" id="seatCity" name="seat_city"
+                                            placeholder="Város">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="seatStreet">Utca</label>
+                                        <input type="text" class="form-control" id="seatStreet" name="seat_street"
+                                            placeholder="Utca név">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="seatHouseNumber">Házszám</label>
+                                        <input type="text" class="form-control" id="seatHouseNumber" name="seat_housenumber"
+                                            placeholder="Házszám">
+                                    </div>
+                                </div>
+
+                                <label>Fióktelephely</label>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="branchZipCode">Irsz.</label>
+                                        <input type="text" class="form-control" id="branchZipCode" name="branch_zip"
+                                            placeholder="Irsz.">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="branchCity">Város</label>
+                                        <input type="text" class="form-control" id="branchCity" name="branch_city"
+                                            placeholder="Város">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="branchStreet">Utca</label>
+                                        <input type="text" class="form-control" id="branchStreet" name="branch_street"
+                                            placeholder="Utca név">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="branchHouseNumber">Házszám</label>
+                                        <input type="text" class="form-control" id="branchHouseNumber" name="branch_housenumber"
+                                            placeholder="Házszám">
+                                    </div>
+                                </div>
+
+                                <label>Állandó lakcím</label>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="permZipCode">Irsz.</label>
+                                        <input type="text" class="form-control" id="permZipCode" name="perm_zip"
+                                            placeholder="Irsz.">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="permCity">Város</label>
+                                        <input type="text" class="form-control" id="permCity" name="perm_city"
+                                            placeholder="Város">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="permStreet">Utca</label>
+                                        <input type="text" class="form-control" id="permStreet" name="perm_street"
+                                            placeholder="Utca név">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="permHouseNumber">Házszám</label>
+                                        <input type="text" class="form-control" id="permHouseNumber" name="perm_housenumber"
+                                            placeholder="Házszám">
+                                    </div>
+                                </div>
+                                <label>Levelezési cím</label>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="mailingZipCode">Irsz.</label>
+                                        <input type="text" class="form-control" id="mailingZipCode" name="mailing_zip"
+                                            placeholder="Irsz.">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="mailingCity">Város</label>
+                                        <input type="text" class="form-control" id="mailingCity" name="mailing_city"
+                                            placeholder="Város">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="mailingStreet">Utca</label>
+                                        <input type="text" class="form-control" id="mailingStreet" name="mailing_street"
+                                            placeholder="Utca név">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="mailingHouseNumber">Házszám</label>
+                                        <input type="text" class="form-control" id="mailingHouseNumber" name="mailing_housenumber"
+                                            placeholder="Házszám">
+                                    </div>
+                                </div>
+
+                                <h4>Vállalkozás adatai</h4>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="mainBusinessActivity ">Főtevékenység</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span><input
+                                                id="mainBusinessActivity" name="main_business_activity" placeholder="Főtevékenység"
+                                                class="form-control" required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="dateOfFoundation">Alapítás nyilvántartásba vétele</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span><input
+                                                id="dateOfFoundation" name="date_of_foundation" placeholder="Alapítás nyilvántartásba vétele"
+                                                class="form-control date-input" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="taxNumber">Vállalkozói adószám</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="taxNumber" name="tax_number" placeholder="Vállalkozói adószám"
+                                                class="form-control" required="true" value="" type="text" pattern="[0-9]{8}-[0-9]-[0-9]{2}"
+                                                data-mask="maskTaxNumber()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="registrationNumber">Vállalkozói nyilvántartási szám</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="registrationNumber" name="registration_number" placeholder="Vállalkozói nyilvántartási szám"
+                                                class="form-control" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Banki képviselő adatai -->
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3>Banki képviselő adatai</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                        <button type="button" class="btn btn-primary" name="sameBankRepr" id="sameBankRepr">Egyező
+                                            adatok</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-primary" name="resetFormButton" id="resetFormButton"
+                                            style="float: right;">Adatok visszaállítása</button>
+                                    </div>
+                                </div>
+                                <h4>Személyes adatok</h4>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="firstNameBankRepr">Családi név</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="firstNameBankRepr" name="first_name_bank_repr" placeholder="Családi név"
+                                                class="form-control" required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="lastNameBankRepr">Keresztnév</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="lastNameBankRepr" name="last_name_bank_repr" placeholder="Keresztnév"
+                                                class="form-control" required="true" value="" type="text"></div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="fullNameBankRepr">Teljes név</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="fullNameBankRepr" name="full_name_bank_repr" placeholder="Teljes név"
+                                                class="form-control" required="true" value="" type="text" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="birthNameBankRepr">Születési név</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="birthNameBankRepr" name="birth_name_bank_repr" placeholder="Születési név"
+                                                class="form-control" required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="motherNameBankRepr">Anyja neve</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="motherNameBankRepr" name="mother_name_bank_repr" placeholder="Anyja neve"
+                                                class="form-control" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="birthPlaceBankRepr">Születési hely</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><input
+                                                id="birthPlaceBankRepr" name="birth_place_bank_repr" placeholder="Születési hely"
+                                                class="form-control" required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="birthDateBankRepr">Születési idő</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span><input
+                                                id="birthDateBankRepr" name="birth_date_bank_repr" placeholder="Születési idő"
+                                                class="form-control date-input" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="idNumberBankRepr">Személyi igazolvány száma</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="idNumberBankRepr" name="id_number_bank_repr" placeholder="SZIG szám"
+                                                class="form-control id-number-input" required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="addressCardNumberBankRepr">Lakcímkártya száma</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="addressCardNumberBankRepr" name="address_card_number_bank_repr"
+                                                placeholder="Lakcímkártya száma" class="form-control address-card-number-input"
+                                                required="true" value="" type="text"></div>
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0 mb-3">
+                                        <label for="taxIdNumberBankRepr">Adóazonosító jel</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="taxIdNumberBankRepr" name="tax_id_number_bank_repr" placeholder="Adóazonosító jel"
+                                                class="form-control tax-id-number-input" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="educationBankRepr">Végzettség</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                                            <select id="educationBankRepr" name="education_bank_repr" class="form-control">
+                                                <option selected>Válassz egyet...</option>
+                                                <option value="kozep">Középfokú</option>
+                                                <option value="kozepszak">Középfokú szakirányú</option>
+                                                <option value="felso">Felsőfokú</option>
+                                                <option value="felsoszak">Felsőfokú szakirányú</option>
+                                                <option value="hatosagi">Közvetítő hatósági vizsga</option>
+                                                <option value="egyeb">Egyéb</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="relationship">Jogviszony jellege</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-transfer"></i></span>
+                                            <select id="relationshipBankRepr" name="relationship_bank_repr" class="form-control">
+                                                <option selected>Choose...</option>
+                                                <option value="munkaviszony">Munkaviszony</option>
+                                                <option value="megbizasi">Megbízási jogviszony</option>
+                                                <option value="egyeb">Egyéb jogviszony</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="jobTitleBankRepr">Beosztás megnevezése</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="jobTitleBankRepr" name="job_title_bank_repr" placeholder="Beosztás megnevezése"
+                                                class="form-control" required="true" value="" type="text"></div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="dateOfEmploymentBankRepr">Tisztség betöltésének kezdete</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input
+                                                id="dateOfEmploymentBankRepr" name="date_of_employment_bank_repr"
+                                                placeholder="Tisztség betöltésének kezdete" class="form-control date-input"
+                                                required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <h4>Kapcsolattartási adatok</h4>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="emailBankRepr">Email</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input
+                                                id="emailBankRepr" name="email_bank_repr" placeholder="Email" class="form-control"
+                                                required="true" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 m-0 mb-3">
+                                        <label for="phoneBankRepr">Telefonszám</label>
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span><input
+                                                id="phoneBankRepr" name="phone_bank_repr" placeholder="Telefonszám"
+                                                class="form-control" required="true" value="" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <label>Állandó lakcím</label>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="permZipCodeBankRepr">Irsz.</label>
+                                        <input type="text" class="form-control" id="permZipCodeBankRepr" name="perm_zip_bank_repr"
+                                            placeholder="Irsz.">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="permCityBankRepr">Város</label>
+                                        <input type="text" class="form-control" id="permCityBankRepr" name="perm_city_bank_repr"
+                                            placeholder="Város">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="permStreetBankRepr">Utca</label>
+                                        <input type="text" class="form-control" id="permStreetBankRepr" name="perm_street_bank_repr"
+                                            placeholder="Utca név">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="permHouseNumberBankRepr">Házszám</label>
+                                        <input type="text" class="form-control" id="permHouseNumberBankRepr" name="perm_housenumber_bank_repr"
+                                            placeholder="Házszám">
+                                    </div>
+                                </div>
+                                <label>Levelezési cím</label>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="mailingZipCodeBankRepr">Irsz.</label>
+                                        <input type="text" class="form-control" id="mailingZipCodeBankRepr" name="mailing_zip_bank_repr"
+                                            placeholder="Irsz.">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="mailingCityBankRepr">Város</label>
+                                        <input type="text" class="form-control" id="mailingCityBankRepr" name="mailing_city_bank_repr"
+                                            placeholder="Város">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="mailingStreetBankRepr">Utca</label>
+                                        <input type="text" class="form-control" id="mailingStreetBankRepr" name="mailing_street_bank_repr"
+                                            placeholder="Utca név">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="mailingHouseNumberBankRepr">Házszám</label>
+                                        <input type="text" class="form-control" id="mailingHouseNumberBankRepr" name="mailing_housenumber_bank_repr"
+                                            placeholder="Házszám">
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-success" id="submitButton">Adatlap elküldése</button>
+        </form>
+    </div>
+</body>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        function getFullName() {
+            $.ajax(
+                $("#fullName").val($("#firstName").val() + " " + $("#lastName").val())
+            );
+            $.ajax(
+                $("#fullNameBankRepr").val($("#firstNameBankRepr").val() + " " + $("#lastNameBankRepr").val())
+            );
+        }
+
+        $("#firstName").change(getFullName);
+        $("#lastName").change(getFullName);
+        $("#firstNameBankRepr").change(getFullName);
+        $("#lastNameBankRepr").change(getFullName);
+
+
+        $("#sameBankRepr").click(function () {
+            const idAppend = "BankRepr";
+
+            $input_ids = $('#evForm input[id]').map(function () {
+                $("#" + this.id + idAppend).val($("#" + this.id).val());
+            }).get();
+            $select_ids = $('#evForm select[id]').map(function () {
+                $("#" + this.id + idAppend).val($("#" + this.id).val());
+            }).get();
+        });
+
+        $("#resetFormButton").click(function () {
+            const idAppend = "BankRepr";
+
+            $input_ids = $('#evForm input[id]').map(function () {
+
+                if (this.id.includes(idAppend)) {
+                    $("#" + this.id).val(this.defaultValue);
+                }
+            }).get();
+
+        });
+
+        $('#taxNumber').inputmask("99999999-9-99");
+        $('.account-number-input').inputmask("99999999-99999999-99999999");
+        $('#registrationNumber').inputmask("999999");
+        $(".date-input").inputmask("datetime", { "inputFormat": "yyyy-mm-dd" });
+        $(".id-number-input").inputmask("999999AA");
+        $(".address-card-number-input").inputmask("999999AA");
+        $(".tax-id-number-input").inputmask("9999999999");
+
+    });
+
+</script>
+
+
+</html>
